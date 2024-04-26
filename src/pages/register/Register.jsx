@@ -11,7 +11,7 @@ export default function Register(props) {
         <div className="container">
             <h1 className="text-align-center color-red"> Register </h1> 
             <span className="text-align-center"> Please Register to continue</span>
-            {firstTime && <span>First time here</span>}
+            {firstTime && <span>Welcome PLEASE REGISTER</span>}
         </div>
     </>
 }
