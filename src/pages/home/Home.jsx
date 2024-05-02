@@ -4,15 +4,20 @@ import "./stylesHome.css";
 export default function Home() {
     const navigate = useNavigate();
 
-    const onHandleLogin = () => {
+    const onHandleChat = () => {
         navigate("/login");
     }
 
     return <>
         <div className="container">
-            <h1 className="text-align-center color-red"> Chat EISC </h1>
-            <span className="text-align-center"> Welcome </span>
-            <button onClick={onHandleLogin}>Login</button>
+            <div className="flex flex-column justify-center align-items-center w-100 bg-white">
+                <h1 className="color-red"> Chat EISC </h1>
+                <h2 className=""> Bienvenido </h2>
+                <div className="">
+                    <button onClick={onHandleChat}>Chatear</button>
+                </div>
+            </div>
+            
         </div>
     </>
 }

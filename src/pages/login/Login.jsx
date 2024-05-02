@@ -4,7 +4,7 @@ import "./stylesLogin.css"
 import { useNavigate } from "react-router-dom";
 
 export default function Login(props) {
-    const {setUser} = useUser();
+    const { setUser } = useUser();
     const emailRef = useRef();
     const passwordRef = useRef();
 
@@ -15,19 +15,26 @@ export default function Login(props) {
             email: emailRef.current.value,
             password: passwordRef.current.value
         })
-        navigate("/register", {
-            state: {firstTime: false}
-        })
-    }   
+
+        navigate("/register")
+    }
+
     return <>
         <div className="container">
-            <h1 className="color-red text-align-center"> Login </h1> 
-            <span className="text-align-center"> Please login to continue</span>
-            <form>
-                <input ref={emailRef} type="text" placeholder="Diigite el email"/>
-                <input ref={passwordRef} type="text" placeholder="Digite la cotraseña"/>
-                <button onClick={onHandleLogin}> Login </button>
-            </form>
+            <div className="flex flex-column justify-center align-items-center w-100 bg-white"> 
+                <h1 className="color-red"> Inicio de sesión </h1>
+                <form className="">
+                    <div>
+                        <input ref={emailRef} type="text" placeholder="Diigite el email" />
+                    </div>
+                    <div>
+                        <input ref={passwordRef} type="text" placeholder="Digite la cotraseña" />
+                    </div>
+                    <div className="">
+                        <button className="w-100" onClick={onHandleLogin}> Acceder </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </>
 }
