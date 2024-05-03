@@ -2,7 +2,7 @@
   "name": "chat-eisc-client",
   "version": "0.1.0",
   "description": "Chat EISC Metaverse client",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "dev": "react-scripts start"
   },
@@ -25,5 +25,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
   }
 }
