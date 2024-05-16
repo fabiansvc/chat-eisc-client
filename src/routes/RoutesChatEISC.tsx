@@ -1,10 +1,11 @@
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "../pages/login/Login";
-import Register from "../pages/register/Register";
-import NotFound from "../pages/not-found/NotFound";
-import Home from "../pages/home/Home";
+import Login from "../pages/login/Login.tsx";
+import Register from "../pages/register/Register.tsx";
+import NotFound from "../pages/not-found/NotFound.tsx";
+import Home from "../pages/home/Home.tsx";
 
-export default function RoutesChatEISC() {
+const RoutesChatEISC: React.FC = () => {
     return (
         <BrowserRouter>
             <Routes>
@@ -14,5 +15,7 @@ export default function RoutesChatEISC() {
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
-    )
-}
+    );
+};
+
+export default RoutesChatEISC;

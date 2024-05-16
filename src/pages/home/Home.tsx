@@ -1,14 +1,15 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./stylesHome.css";
 
-export default function Home() {
+const Home: React.FC = () => {
     const navigate = useNavigate();
 
     const onHandleChat = () => {
         navigate("/login");
-    }
+    };
 
-    return <>
+    return (
         <div className="container">
             <div className="flex flex-column justify-center align-items-center w-100 bg-white">
                 <h1 className="color-red"> Chat EISC </h1>
@@ -17,7 +18,8 @@ export default function Home() {
                     <button onClick={onHandleChat}>Chatear</button>
                 </div>
             </div>
-            
         </div>
-    </>
-}
+    );
+};
+
+export default Home;
