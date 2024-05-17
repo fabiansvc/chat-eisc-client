@@ -7,7 +7,7 @@ interface User {
 
 interface UserContextType {
     user: User;
-    setUser: React.Dispatch<React.SetStateAction<User>>;
+    setUser: (user: User) => void;
 }
 
 export const userContext = createContext<UserContextType | undefined>(undefined);
@@ -38,17 +38,3 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }: UserProviderPro
 };
 
 export default UserProvider;
-
-// export default function UserProvider ({ children }: UserProviderProps){
-//     const [user, setUser] = useState<User>({
-//         email: "",
-//         password: ""
-//     });
-
-//     return (
-//         <userContext.Provider value={{ user, setUser }}>
-//             {children}
-//         </userContext.Provider>
-//     );
-// };
-

@@ -4,41 +4,47 @@ import "./stylesLogin.css";
 import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = (props) => {
-    const { setUser } = useUser();
-    const emailRef = useRef<HTMLInputElement>(null);
-    const passwordRef = useRef<HTMLInputElement>(null);
+  const { user } = useUser();
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const onHandleLogin = () => {
-        if (emailRef.current && passwordRef.current) {
-            setUser({
-                email: emailRef.current.value,
-                password: passwordRef.current.value
-            });
-        }
+  const onHandleLogin = (e) => {
+    e.preventDefault();
 
-        navigate("/register");
-    };
+    if (
+      user.email === emailRef.current?.value &&
+      user.password === passwordRef.current?.value
+    ) {
+        navigate("/chat");
+    }
+  };
 
-    return (
-        <div className="container">
-            <div className="flex flex-column justify-center align-items-center w-100 bg-white"> 
-                <h1 className="color-red"> Inicio de sesión </h1>
-                <form>
-                    <div>
-                        <input ref={emailRef} type="text" placeholder="Diigite el email" />
-                    </div>
-                    <div>
-                        <input ref={passwordRef} type="password" placeholder="Digite la contraseña" />
-                    </div>
-                    <div className="">
-                        <button className="w-100" onClick={onHandleLogin}> Acceder </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    );
+  return (
+    <div className="container">
+      <div className="flex flex-column justify-center align-items-center w-100 bg-white">
+        <h1 className="color-red"> Inicio de sesión </h1>
+        <form>
+          <div>
+            <input ref={emailRef} type="text" placeholder="Diigite el email" />
+          </div>
+          <div>
+            <input
+              ref={passwordRef}
+              type="password"
+              placeholder="Digite la contraseña"
+            />
+          </div>
+          <button className="w-100" onClick={onHandleLogin}>
+            Acceder
+          </button>
+        </form>
+        <span> o Registrese </span>
+        <button onClick={() => navigate("/register")}>Registrar</button>
+      </div>
+    </div>
+  );
 };
 
 export default Login;
